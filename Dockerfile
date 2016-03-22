@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-install mcrypt \
       pdo_pgsql \
+      pdo_mysql \
       opcache \
       intl \
       pgsql
