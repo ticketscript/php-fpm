@@ -23,6 +23,9 @@ RUN docker-php-ext-install mcrypt \
       intl \
       pgsql
 
+RUN pecl install -f memcache
+RUN echo "extension=memcache.so" >> /usr/local/etc/php/conf.d/memcached.ini
+
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN echo "\nphp_value[date.timezone] = Europe/Amsterdam\n" >> /usr/local/etc/php-fpm.conf
 
